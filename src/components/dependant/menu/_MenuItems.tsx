@@ -6,8 +6,8 @@ const _MenuItems = () => {
     return (
         <>
             <Menu title={"Home"} link={"/"} />
-            <Menu title={"Services"} link={"/services"} />
-            <Menu title={"Projects"} link={"/projects"} />
+            <Menu title={"Services"} link={"/service"} />
+            <Menu title={"Project"} link={"/project"} />
             <Menu title={"About"} link={"/about"} />
         </>
     )
