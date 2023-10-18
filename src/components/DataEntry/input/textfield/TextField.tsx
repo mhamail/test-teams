@@ -10,13 +10,13 @@ interface InputProps {
     value?: string | number
 }
 
-const TextField: FC<InputProps> = ({ label, required, type, name, placeholder, value, handleEvent }) => {
+const TextField: FC<InputProps> = ({ label, required, type, name, placeholder, value, className, handleEvent }) => {
     const Required = () => (
         <span className='text-primary'>*</span>
     )
     return (
         <div>
-            <label>
+            <label className='font-semibold'>
                 {label || "Title *"} &nbsp;
                 {required && Required()}
             </label>
@@ -26,7 +26,7 @@ const TextField: FC<InputProps> = ({ label, required, type, name, placeholder, v
                 placeholder={placeholder || "Enter a Text"}
                 name={name}
                 value={value}
-                className="w-full rounded-md border border-gray-400 pe-10 shadow-sm sm:text-sm p-3 relative"
+                className={`w-full ${className} rounded-md border h-14 focus:shadow-lg focus:border-blue-700 focus:duration-300 transition focus:outline-none pe-10 shadow-sm sm:text-sm p-3 relative`}
                 onChange={handleEvent}
             />
         </div>

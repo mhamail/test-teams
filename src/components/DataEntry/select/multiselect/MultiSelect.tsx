@@ -59,14 +59,14 @@ const MultiSelect: FC<props> = ({ placeholder, name, required, }) => {
     return (
         <div className='relative'  ref={divRef}>
             <div className='group'>
-                <label>
+                <label className='font-semibold'>
                     Select <span className='capitalize'>
                         {name || "Options"}
                     </span>
                     &nbsp;
                     {required && Required()}
                 </label>
-                <div className={`p-1 w-full border border-gray-400 group-hover:border-blue-600 group-hover:bg-blue-200 flex items-center justify-between cursor-pointer select-none text-text_blue-600 rounded-sm`}
+                <div className={`p-1 w-full border h-14 focus:shadow-lg focus:border-blue-700 focus:duration-300 transition focus:outline-none flex items-center justify-between cursor-pointer select-none  rounded-lg`}
                     onClick={() => setOpen(!open)}
                 >
                     {/* show on placeholder */}
@@ -81,17 +81,17 @@ const MultiSelect: FC<props> = ({ placeholder, name, required, }) => {
                         :
                         placeholder || "Default *all subjects*"
                     }
-                    <IoMdArrowDropdown />
+                    <IoMdArrowDropdown size="25px" />
                 </div>
                 {/* toggle */}
                 {open && 
                 // add absolute class
-                    <div className='bg-white shadow-lg border' >
+                    <div className='bg-white shadow-lg border rounded-lg border-t-0' >
 
                         <div className='flex flex-wrap'>
                             {value.map((item, index) => (
-                                <div key={index} className='relative bg-gray-300 mt-2 mb-1 ms-2'>
-                                    <span className='absolute -top-2 p-[2px] bg-blue-600 text-white hover:bg-red-600 '
+                                <div key={index} className='relative border rounded-md shadow hover:border-blue-600 transition duration-300 mt-8 mb-1 ms-2'>
+                                    <span className='absolute -top-7 p-[6px] border rounded-md text-black hover:border-red-600 transition duration-300 '
                                         onClick={() => removeSelect(item)}
                                     >
                                         <ImCross size={10} />
@@ -104,14 +104,14 @@ const MultiSelect: FC<props> = ({ placeholder, name, required, }) => {
                         </div>
                         <input
                             type='text'
-                            className='p-2 w-full border-b border-gray-300 focus:border-blue-600 outline-none text-blue-600'
+                            className='p-2 w-full border-b rounded-sm h-14 border-gray-300 focus:border-blue-600 outline-none'
                             placeholder='Search...'
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <ul className=' w-full z-50 bg-white shadow-lg border rounded-sm'>
+                        <ul className=' w-full z-5 rounded-sm'>
                             {filteredList.map((item, index) => (
-                                <li className=' border border-gray-200 p-2 px-4 text-sm cursor-pointer hover:underline hover:bg-blue-200'
+                                <li className=' border border-gray-200 p-4 h-14 px-4 font-semibold cursor-pointer hover:underline hover:bg-blue-200'
                                     key={index}
                                     onClick={() => handleClick(item)}
                                 >

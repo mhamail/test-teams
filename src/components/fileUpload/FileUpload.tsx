@@ -48,14 +48,16 @@ const FileUpload: FC<Props> = ({ handleImage }) => {
     }
 
     return (
-        <div>
+        <div  className='rounded-2xl space-y-5'>
             <input
+               className=' border border-blue-600 p-2 rounded-md hover:bg-blue-600 hover:text-white transition duration-300'
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
             />
             {showImage && (
                 <Image
+                className=' rounded-md'
                     src={showImage}
                     alt="Selected Image"
                     height={200}
